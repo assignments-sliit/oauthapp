@@ -1,0 +1,19 @@
+{
+  "name": "oauth-app",
+  "version": "1.0.0",
+  "description": "O-Auth App for SSD ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "oauth",
+    "google",
+    "facebook"
+  ],
+  "author": "Manoj Kumar, Amashi Sandunika",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
