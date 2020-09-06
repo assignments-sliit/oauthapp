@@ -1,0 +1,11 @@
+{
+  "web": {
+    "client_id": "294380173889-s7q7edhdl3pu78dktoftsteoqod65r3o.apps.googleusercontent.com",
+    "project_id": "oauth-app-1599098211104",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "UJKqpbeY06556yf8lomMb4Nj",
+    "redirect_uris": ["http://localhost:5000/authenticate/google"]
+  }
+}
