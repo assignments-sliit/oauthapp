@@ -5,9 +5,9 @@ const nunjucks = require("nunjucks");
 const cookieSession = require("cookie-session");
 const keys = require('./keys.json');
 const fileuppload = require("express-fileupload");
-const homeRouter = require("../oauthapp/routes/dashboard")
-const authRouter = require("../oauthapp/routes/authentication")
-const googleConfig = require('../oauthapp/auth-providers/passport')
+const homeRouter = require("./routes/dashboard")
+const authRouter = require("./routes/authentication")
+const googleConfig = require('./auth-providers/passport')
 
 
 app.use("/static", express.static("public"));
