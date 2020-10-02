@@ -23,8 +23,8 @@ router.get('/dashboard', (req, res) => {
     };
 
     if (req.query.file !== undefined) {
-      if (req.query.file == "upload") data.file = "Uploaded";
-      else if (req.query.file == "notupload") data.file = "Not Uploaded";
+      if (req.query.file == "upload") data.file = "uploaded";
+      else if (req.query.file == "notupload") data.file = "notuploaded";
     }
 
     res.render('dashboard.html', data);
@@ -62,8 +62,8 @@ router.post("/upload", (req, res) => {
 
     gDriveResponse
       .then((data) => {
-        if (data.status == 200) res.redirect("dashboard?file=upload");
-        else res.redirect("/dashboard?file=notupload");
+        if (data.status == 200) res.redirect('/dashboard?file=upload');
+        else res.redirect('/dashboard?file=notuploaded');
       })
       .catch((err) => {
         throw new Error(err);
