@@ -31,7 +31,9 @@ If the build is successful, the terminal will display following message
 
 ![TerminalResult](https://user-images.githubusercontent.com/40816466/95243075-ba796300-082d-11eb-8d40-d4a048af8ead.JPG)
 
-After above message appears in terminal, type http://localhost:5000/ on the browser. Now you can view the application in the browser!!
+After above message appears in terminal, type http://localhost:5000/ on the browser. Now you can view the below start page of the application in the browser!!
+
+![home](https://user-images.githubusercontent.com/40816466/95243621-86eb0880-082e-11eb-8ad0-c2b3bd5a8b3b.JPG)
 
 Happy Building!!
 
