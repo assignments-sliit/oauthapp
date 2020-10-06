@@ -1,39 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{title}}</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>{{title}}</title>
-  
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-</head>
 
-<body>
-  <nav style="background: #4857c1">
-    <div align="center" class="nav-wrapper">
-      <h2>
-        Welcome to Google Drive Upload center
-      </h2>
-      <!-- <ul id="nav-mobile" class="center">
-        <li>
-          <a href="/authenticate/login/google">CLICK HERE TO UPLOAD YOUR FILES</a>
-        </li>
-      </ul> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+      <a class="navbar-brand"> Google Drive Upload Center </a>
+    </nav>
+    <br /><br /><br /><br /><br /><br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+          <h1 class="ml1">
+            <span class="text-wrapper">
+              <span class="letters"
+                >Welcome to Google Drive Upload Center!</span
+              >
+            </span>
+          </h1>
+        </div>
+      </div>
+      <br /><br />
+      <div align="center">
+        <p class="lead">
+          You can now upload your files to your own Google Drive from here!
+        </p>
+        <p class="lead">Let's start by clicking below!!</p>
+        <a class="btn btn-info" href="/authenticate/login/google" role="button"
+          ><i class="fas fa-file-upload"></i> &nbsp;&nbsp;&nbsp;Start
+          uploading</a
+        >
+      </div>
     </div>
-  </nav><br><br><br><br>
-  <br> <br>
-  <div align="center">
-  <a href="/authenticate/login/google" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Add files to drive</a>
-</div>
 
-  </button>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+      // Wrap every letter in a span
+      var textWrapper = document.querySelector(".ml1 .letters");
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
 
+      anime
+        .timeline({ loop: true })
+        .add({
+          targets: ".ml1 .letter",
+          scale: [0.3, 1],
+          opacity: [0, 1],
+          translateZ: 0,
+          easing: "easeOutExpo",
+          duration: 600,
+          delay: (el, i) => 70 * (i + 1),
+        })
+        .add({
+          targets: ".ml1 .line",
+          scaleX: [0, 1],
+          opacity: [0.5, 1],
+          easing: "easeOutExpo",
+          duration: 700,
+          offset: "-=875",
+          delay: (el, i, l) => 80 * (l - i),
+        })
+        .add({
+          targets: ".ml1",
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000,
+        });
+    </script>
+  </body>
 </html>

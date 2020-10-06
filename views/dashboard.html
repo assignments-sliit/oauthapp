@@ -1,63 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{title}}</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>{{title}}</title>
-  <link href="/static/materialize.css" rel="stylesheet" />
-</head>
-
-<body>
-  <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right">
-        <li>{{name}}</li>
-        <li><a href="/authenticate/logout">logout</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
+  <body>
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+      <a class="navbar-brand"> Google Drive Upload Center </a>
+      <span class="navbar-text">
+        {{name}} &nbsp;&nbsp;&nbsp;
+        <a href="/authenticate/logout">logout</a>
+      </span>
+    </nav>
+    <br /><br /><br /><br />
     <div class="container-fluid">
       <div class="row">
-        <div class="col s12">
-          <ul class="collection">
-            <li class="collection-item avatar">
-              <img src="{{avatar}}" alt="avatar" class="circle" />
-              <span class="title">Welcome {{name}}! </span>
-              <p>Google ID - {{googleid}}</p>
-              <p>E-mail - {{email}}</p>
-            </li>
-          </ul>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+          <br />
+          <img
+            src="{{avatar}}"
+            alt="avatar"
+            class="rounded-circle img-fluid"
+            width="120"
+          />
         </div>
-        <div class="col s12 m4 center">
-          <div>
-            {% if (file == "uploaded") %}
-            <div class="light-blue lighten-1" style="padding: 2px 10px">
-              <p>File successfully uploaded</p>
+        <div class="col-sm-4">
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                value="{{name}}"
+                readonly
+              />
             </div>
-            {% elif (file == "notuploaded") %}
-            <div class="light-blue lighten-1" style="padding: 2px 10px">
-              <p>File failed to upload please try again</p>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                value="{{email}}"
+                readonly
+              />
             </div>
-            {% endif %}
-          </div>
-
-          <form action="/upload" method="post" enctype="multipart/form-data">
-            
-            <input type="file" name="file_upload">
-              
-              <button style="display: block; margin: 0 auto" class="btn waves-effect waves-light" type="submit">
-                UPLOAD
-              </button>
-   
+            <div class="form-group">
+              <label for="googleId">Google ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="googleId"
+                value="{{googleid}}"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="file_upload">Upload File</label>
+              <input
+                type="file"
+                class="form-control-file"
+                name="file_upload"
+                id="file_upload"
+              />
+            </div>
+            <button class="btn btn-success float-right" type="submit">
+              Upload File
+            </button>
           </form>
         </div>
       </div>
+      <br /><br />
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+          {% if (file == "uploaded") %}
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+            <strong>File uploaded to the drive successfully!!</strong>
+          </div>
+          {% elif (file == "notuploaded") %}
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+            <strong>Error in uploading!</strong> Please try again.
+          </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
-  </main>
-</body>
-
+  </body>
 </html>
