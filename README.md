@@ -33,7 +33,7 @@ If the build is successful, the terminal will display following message
 
 After above message appears in terminal, type http://localhost:5000/ on the browser. Now you can view the below start page of the application in the browser!!
 
-![home](https://user-images.githubusercontent.com/40816466/95243621-86eb0880-082e-11eb-8ad0-c2b3bd5a8b3b.JPG)
+![home page](https://user-images.githubusercontent.com/40816466/95243751-b568e380-082e-11eb-928a-4e40bac499c3.png)
 
 Happy Building!!
 
