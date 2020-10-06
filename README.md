@@ -1,2 +1,1 @@
-# OAuth App using Google & Facebook Auth APIs
-O-Auth App for SSD
+# Upload Files to Google Drive using OAuth
