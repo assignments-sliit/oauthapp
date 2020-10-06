@@ -6,7 +6,8 @@
 
 Google Drive Upload Center requires [Node.js](https://nodejs.org/) v4+ to run.
 
-Install the dependencies and devDependencies and start the server.
+First, download the source code from Github
+Then, install the dependencies and devDependencies and start the server.
 
 ```sh
 $ cd oauthapp
