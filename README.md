@@ -11,8 +11,9 @@ Then, install the dependencies and devDependencies and start the server.
 
 ```sh
 $ cd oauthapp
-$ npm install -i
+$ npm install
 ```
+
 ### Build and Deploy for Testings
 
 The application requires nodemon to build and deploy. If there is no nodemon with you, install nodemon using below command.
@@ -27,6 +28,7 @@ After successfully install nodemon type below command to execute the application
 ```sh
 $ nodemon
 ```
+
 If the build is successful, the terminal will display following message
 
 ![TerminalResult](https://user-images.githubusercontent.com/40816466/95243075-ba796300-082d-11eb-8d40-d4a048af8ead.JPG)
@@ -39,5 +41,4 @@ Happy Building!!
 
 ### Todos
 
- - Do MORE Tests
-
+- Do MORE Tests
