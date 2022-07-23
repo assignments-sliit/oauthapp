@@ -5,14 +5,15 @@ const keys = require("../keys.json");
 
 const router = Router();
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   res.render("home.html", {
     title: "Welcome to Upload Center",
   });
 });
 
-router.get('/dashboard', (req, res) => {
-  if (typeof req.user == "undefined") res.redirect("/authenticate/login/google");
+router.get("/dashboard", (req, res) => {
+  if (typeof req.user == "undefined")
+    res.redirect("/authenticate/login/google");
   else {
     const data = {
       title: "Dashboard",
@@ -27,7 +28,7 @@ router.get('/dashboard', (req, res) => {
       else if (req.query.file == "notupload") data.file = "notuploaded";
     }
 
-    res.render('dashboard.html', data);
+    res.render("dashboard.html", data);
   }
 });
 
@@ -62,8 +63,8 @@ router.post("/upload", (req, res) => {
 
     gDriveResponse
       .then((data) => {
-        if (data.status == 200) res.redirect('/dashboard?file=upload');
-        else res.redirect('/dashboard?file=notuploaded');
+        if (data.status == 200) res.redirect("/dashboard?file=upload");
+        else res.redirect("/dashboard?file=notuploaded");
       })
       .catch((err) => {
         throw new Error(err);
