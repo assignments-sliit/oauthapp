@@ -7,7 +7,6 @@ const keys = require("./keys.json");
 const fileuppload = require("express-fileupload");
 const homeRouter = require("./routes/dashboard");
 const authRouter = require("./routes/authentication");
-const googleConfig = require("./auth-providers/passport");
 
 app.use("/static", express.static("public"));
 
